@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <title>K2 認詞語遊戲</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="專為幼稚園K2學生設計的互動式中文詞語學習遊戲">
+  <meta name="keywords" content="K2, 認詞語, 學習遊戲, 中文, 幼稚園">
+  <meta name="author" content="Manus AI">
+  
+  <!-- 樣式表 -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body>
+  <!-- 主標題 -->
+  <header>
+    <h1 id="main-title">K2 認詞語遊戲</h1>
+  </header>
+
+  <!-- 主要內容區域 -->
+  <main>
+    <!-- 主選單 -->
+    <section id="menu" role="navigation" aria-label="主選單">
+      <button type="button" 
+              onclick="startGameMode()" 
+              aria-label="開始遊戲模式，進行詞語測驗">
+        ▶️ 遊戲模式
+      </button>
+      <button type="button" 
+              onclick="startPracticeMode()" 
+              aria-label="開始練習模式，自由學習詞語">
+        📚 練習模式
+      </button>
+    </section>
+
+    <!-- 遊戲模式 -->
+    <section id="game" style="display:none;" role="main" aria-label="遊戲模式">
+      <!-- 分數顯示 -->
+      <div id="score" 
+           role="status" 
+           aria-live="polite" 
+           aria-label="當前得分">
+        得分：0 / 10
+      </div>
+      
+      <!-- 選項區域 -->
+      <div class="options" 
+           id="options" 
+           role="group" 
+           aria-label="答案選項">
+      </div>
+      
+      <!-- 反饋區域 -->
+      <div id="feedback" 
+           role="status" 
+           aria-live="polite" 
+           aria-label="答題反饋">
+      </div>
+      
+      <!-- 控制按鈕 -->
+      <div class="game-controls">
+        <button type="button" 
+                id="nextBtn" 
+                onclick="nextQuestion()" 
+                aria-label="進入下一題">
+          下一題 ➡️
+        </button>
+        <button type="button" 
+                onclick="returnToMenu()" 
+                aria-label="返回主選單">
+          🔙 返回選單
+        </button>
+      </div>
+    </section>
+
+    <!-- 練習模式 -->
+    <section id="practice" style="display:none;" role="main" aria-label="練習模式">
+      <!-- 詞語列表 -->
+      <div class="word-list" 
+           id="wordList" 
+           role="group" 
+           aria-label="詞語練習列表">
+      </div>
+      
+      <!-- 圖片顯示區域 -->
+      <div id="practiceImage" 
+           role="region" 
+           aria-label="詞語展示區域">
+      </div>
+      
+      <!-- 控制按鈕 -->
+      <div class="practice-controls">
+        <button type="button" 
+                onclick="returnToMenu()" 
+                aria-label="返回主選單">
+          🔙 返回選單
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 音頻元素 -->
+  <audio id="correctSound" 
+         preload="auto" 
+         aria-hidden="true">
+    <source src="assets/audio/success-fanfare-trumpets-6185.mp3" type="audio/mpeg">
+    您的瀏覽器不支援音頻播放。
+  </audio>
+
+  <!-- 載入提示 -->
+  <div id="loading" style="display:none;" role="status" aria-label="載入中">
+    <div class="loading"></div>
+    <p>載入中...</p>
+  </div>
+
+  <!-- JavaScript 文件 -->
+  <script src="js/utils.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/practice.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- 結構化數據 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalApplication",
+    "name": "K2 認詞語遊戲",
+    "description": "專為幼稚園K2學生設計的互動式中文詞語學習遊戲",
+    "educationalLevel": "幼稚園",
+    "learningResourceType": "遊戲",
+    "inLanguage": "zh-HK",
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "學生",
+      "audienceType": "幼稚園學生"
+    }
+  }
+  </script>
+</body>
+</html>
+
